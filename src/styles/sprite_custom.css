@@ -1,0 +1,63 @@
+.header-icon-text i[class^='header-icon-']{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url(~@/assets/img/header_app7.png) ;
+    background-repeat: no-repeat;
+}
+.header-icon-deadbeat{
+    background-position: -80px -160px;
+}
+.header-icon-monitor{
+    background-position: 160px 200px;
+}
+.header-icon-map{
+    background-position: -40px 0px;
+}
+.header-icon-recruit{
+    background-position: -80px -160px;
+}
+.header-icon-muhouperson{
+    background-position: -80px -160px;
+}
+.header-icon-industry{
+    background-position: -80px -160px;
+}
+.header-icon-company{
+    background-position: -80px -160px;
+}
+.header-icon-report{
+    background-position: -80px -160px;
+}
+
+.nav-container i[class^='nav-icon-']{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-image: url(~@/assets/img/index_nav.png) ;
+    background-size: 200px 100px;
+}
+.nav-icon-overseas {
+    background-position: 200px 100px;
+}
+.nav-icon-brands {
+    background-position: -50px 0px;
+}
+.nav-icon-shixins {
+    background-position: -100px 0px;
+}
+.nav-icon-elib {
+    background-position: -150px 0px;
+}
+.nav-icon-certpay {
+    background-position: 0px -50px;
+}
+.nav-icon-monitor {
+    background-position: -49px -50px;
+}
+.nav-icon-batchsearch {
+    background-position: -100px -50px;
+}
+.nav-icon-map {
+    background-position: -150px -50px;
+}

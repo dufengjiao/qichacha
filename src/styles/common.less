@@ -1,0 +1,87 @@
+/**
+* 样式定义规范
+* 1.一般布局样式的z-index最高为999，弹窗/loading等可大于此值
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #181818;
+  background-color: #F7F9FC;
+  font-size: 14px;
+}
+
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td,
+i,
+span {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+.error-view {
+  height: 100vh;
+  padding-top: 25vh;
+  text-align: center;
+  font-weight: normal;
+}
+
+.clearfix:after {
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.text-ellipsis {
+  word-break: keep-all;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
