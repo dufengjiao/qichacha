@@ -5,5 +5,9 @@ module.exports = {
       warning: false,
       errors: false
     },
+    open: true,
+    before: function (app, server) {
+      require('./mock')(app);
+    }
   }
 };

@@ -5,17 +5,17 @@
         <img src="@/assets/img/logo4.png" alt="logo" />
       </router-link>
       <ul class="clearfix">
-        <li class="nav">
-          <a href="#" @click="handleApp">应用</a>
-          <section v-show="applicatonShow">
+        <li class="nav" @mouseenter="showApp" @mouseleave="hideApp">
+          <a href="#">应用</a>
+          <section class="dropdown-menu app-box clearfix" v-show="applicatonShow" @mouseenter="showApp" @mouseleave="hideApp">
             <template v-for="item in applicatons">
               <div v-if="item.type == 'split'" class="nav-split" :key="item.name">
                 <label>{{ item.label }}</label>
                 <span></span>
               </div>
               <div v-else :key="item.label" class="col-xs">
-                <a href class="header-icon-text">
-                  <i :class="'header-icon-' + item.name"></i>
+                <a href='#' class="header-icon-text" @click="routerJump(item.name)">
+                  <span class="block"><i :class="'header-icon-' + item.name"></i></span>
                   <span>{{ item.label }}</span>
                 </a>
               </div>
@@ -52,7 +52,7 @@ export default {
         { name: "recruit", label: "招聘查询" },
         { name: "muhouperson", label: "大咖搜索" },
         { name: "industry", label: "行业数据" },
-        { type: "split", lebel: "批量查询" },
+        { type: "split", label: "批量查询" },
         { name: "company", label: "企业" },
         { name: "report", label: "信用报告" }
       ],
@@ -74,7 +74,16 @@ export default {
     };
   },
   methods: {
-      handleApp() {}
+      showApp() {
+        this.applicatonShow = true;
+      },
+      hideApp() {
+        this.applicatonShow = false;
+      },
+      routerJump(name) {
+        // this.$router.push({ name: name });
+        this.$router.$open({ name: name });
+      }
   }
 };
 </script>
@@ -94,6 +103,63 @@ export default {
   .nav {
     float: left;
     display: inline-block;
+    position: relative;
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      background: #fff;
+      z-index: 1000;
+      border-radius: 2px;
+      font-size: 13px;
+      text-align: left;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .app-box {
+      width: 542px;
+      line-height: initial;
+      padding: 15px 0;
+      margin-left: -220px;
+      .nav-split {
+        font-size: 15px;
+        color:#000000;
+        font-weight: bold;
+        position: relative;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding-left: 15px;
+        float:left;
+        width: 100%;
+        line-height: 1.8;
+        label{
+          font-size: 15px;
+          position: relative;
+          z-index: 2;
+          padding-right: 10px;
+          background: #fff;
+        }
+        span {
+         position: relative;
+         float: left;
+          height: 1px; 
+          width: 100%;
+          background: #eee;
+          margin-top: -13px;
+
+        }
+      }
+      .col-xs {
+        float: left;
+        display: inline-block;
+        width: 90px;
+        padding: 0 15px;
+        .header-icon-text {
+          i { vertical-align: top; }
+        }
+        .block {
+          margin-bottom: 5px;
+        }
+      }
+    }
   }
   ul {
     float: right;

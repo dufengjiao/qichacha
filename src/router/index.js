@@ -1,29 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import localRoutes from './routes';
 
 Vue.use(VueRouter)
+VueRouter.prototype.$open = (location = '') => {
+  // console.log(router, this)
+  let ref = router.resolve(location);
+  window.open(ref.href, '_blank');
+}
 
-const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+// router.beforeEach((to, from ,next) => {})
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes: localRoutes
 })
 
 export default router

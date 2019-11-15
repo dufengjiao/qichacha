@@ -3,7 +3,8 @@
     width: 40px;
     height: 40px;
     background-image: url(~@/assets/img/header_app7.png) ;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
+    background-size: 160px 200px
 }
 .header-icon-deadbeat{
     background-position: -80px -160px;

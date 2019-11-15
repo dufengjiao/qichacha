@@ -12,6 +12,9 @@
             placeholder="请输入企业名、人名、产品名，或地址电话/经营范围等，多关键词用空格隔开，如“小米 雷军”"
             @select="handleSelect"
           >
+            <template v-slot="{item}">
+              <span class="match-item" v-html="item.nameH"></span>
+            </template>
             <el-button slot="append" type="primary" @click="handleSearch">查一下</el-button>
           </el-autocomplete>
           <div class="hot-container">
@@ -32,6 +35,7 @@
             :class="[`nav-item-${item.name}`, { z: item.clz}]"
             v-for="item in homeNavs"
             :key="item.name"
+            @click="routerJump(item.name)"
           >
             <i :class="`nav-icon-${item.name}`"></i>
             <span class="nav-text">
@@ -48,12 +52,15 @@
 <script>
 // @ is an alias to /src
 import CommonHeader from "@/biz-components/CommonHeader";
+import { searchEntList } from '@/networks/home.api';
 
 export default {
   name: "home",
   data() {
     return {
       keywords: "",
+      entId: '',
+      entName: '',
       hostList: [
         { name: "a", title: "罗永浩限制消费", href: "" },
         { name: "b", title: "比特大陆法人变更", href: "" },
@@ -73,9 +80,21 @@ export default {
     };
   },
   methods: {
-    querySearch(queryString, cb) {},
-    handleSelect() {},
-    handleSearch() {}
+    querySearch(queryString, cb) {
+      if (!queryString) return;
+      searchEntList({ key: queryString }).then(data => {
+        cb(data);
+      })
+    },
+    handleSelect(item) {
+      this.keywords = item.name;
+    },
+    handleSearch() {
+
+    },
+    routerJump(name) {
+      this.$router.$open({ name })
+    }
   },
   components: {
     CommonHeader
@@ -180,4 +199,12 @@ export default {
     }
   }
 }
+.match-item {
+  em {
+    font-style: normal;
+    font-weight: 700;
+    color: #FD485E;
+  }
+}
+
 </style>
