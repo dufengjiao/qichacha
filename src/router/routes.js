@@ -7,6 +7,11 @@ const localRoutes = [{
     component: Home
   },
   {
+    path: '/detail/:key',
+    name: 'detail',
+    component: () => import('../views/detail/index.vue')
+  },
+  {
     path: '/deadbeat',
     name: 'deadbeat',
     // route level code-splitting
@@ -18,6 +23,10 @@ const localRoutes = [{
     path: '/overseas',
     name: 'overseas',
     component: () => import('../views/Overseas.vue')
+  },{
+    path: '/relation',
+    name: 'relation',
+    component: () => import('../views/Relation.vue')
   }
 ];
 export default localRoutes;

@@ -6,7 +6,10 @@
       </router-link>
       <ul class="clearfix">
         <li class="nav" @mouseenter="showApp" @mouseleave="hideApp">
-          <a href="#">应用</a>
+          <a href="#">应用
+            <i class="nav-icon-hot"></i>
+            <i class="caret"></i>
+          </a>
           <section class="dropdown-menu app-box clearfix" v-show="applicatonShow" @mouseenter="showApp" @mouseleave="hideApp">
             <template v-for="item in applicatons">
               <div v-if="item.type == 'split'" class="nav-split" :key="item.name">
@@ -114,6 +117,14 @@ export default {
       text-align: left;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+    .nav-icon-hot{
+      position: absolute;
+      top:7px;
+      left: 30px;
+    }
+    .caret {
+      vertical-align: middle;
+    }
     .app-box {
       width: 542px;
       line-height: initial;
@@ -181,5 +192,6 @@ export default {
       color: #128bed;
     }
   }
+
 }
 </style>

@@ -31,34 +31,48 @@
     background-position: -80px -160px;
 }
 
-.nav-container i[class^='nav-icon-']{
+.nav-container i[class^='bimg-']{
     display: inline-block;
     width: 50px;
     height: 50px;
     background-image: url(~@/assets/img/index_nav.png) ;
     background-size: 200px 100px;
 }
-.nav-icon-overseas {
+.bimg-overseas {
     background-position: 200px 100px;
 }
-.nav-icon-brands {
+.bimg-brands {
     background-position: -50px 0px;
 }
-.nav-icon-shixins {
+.bimg-shixins {
     background-position: -100px 0px;
 }
-.nav-icon-elib {
+.bimg-elib {
     background-position: -150px 0px;
 }
-.nav-icon-certpay {
+.bimg-certpay {
     background-position: 0px -50px;
 }
-.nav-icon-monitor {
+.bimg-monitor {
     background-position: -49px -50px;
 }
-.nav-icon-batchsearch {
+.bimg-batchsearch {
     background-position: -100px -50px;
 }
-.nav-icon-map {
+.bimg-map {
     background-position: -150px -50px;
+}
+[class^='nav-icon'] {
+    display: inline-block;
+    width: 27px;
+    height: 13px;
+    background-image: url(~@/assets/img/nav-icon.png) ;
+    background-size: 27px 26px;
+
+}
+.nav-icon-hot {
+    background-position: 0px 13px;
+}
+.nav-icon-new{
+    background-position: 0px 0px;
 }
